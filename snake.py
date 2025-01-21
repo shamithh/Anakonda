@@ -33,6 +33,14 @@ class Snake:
             self.fragments[frag_num].goto(new_x, new_y)
         self.head.forward(MOVE_DISTANCE)
 
+    def reset(self):
+        for frags in self.fragments:
+            frags.goto(1000 , 1000)
+        self.fragments.clear()
+        self.create_snake()
+        self.head = self.fragments[0]
+
+
     def snake_up(self):
         if self.head.heading() != DOWN:
             self.head.setheading(UP)
